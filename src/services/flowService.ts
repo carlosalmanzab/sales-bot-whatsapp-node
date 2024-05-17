@@ -6,7 +6,7 @@ export const chatflow = (message: string, phoneNumber: string , messageId: strin
     //add mark read
     //add to list
     //add time sleep
-    if (message.toLowerCase().includes("Hola")) {
+    if (/hola/i.test(message)) {
         const textMessage = buildTextMessage(phoneNumber, "hola el bot esta funcionando");
         list.push(textMessage);
     }
