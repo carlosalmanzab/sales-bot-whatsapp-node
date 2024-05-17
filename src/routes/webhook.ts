@@ -2,7 +2,7 @@ import express from "express";
 import morgan from "morgan";
 import { chatflow } from '../services/flowService';
 
-import { extractData } from "../util/extractors/extractMessage";
+import { extractData } from "../util/extractors/receivedMessageExtractor";
 
 const router = express.Router();
 
