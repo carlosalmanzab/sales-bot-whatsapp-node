@@ -1,9 +1,8 @@
-import express, { text } from "express";
+import express from "express";
 import morgan from "morgan";
 import { chatflow } from '../services/flowService';
 
-import { WhatsappMessage } from '../types/receivedMessage.type';
-import { extractContacts, extractData, extractMessage } from "../util/extractors/extractMessage";
+import { extractData } from "../util/extractors/extractMessage";
 
 const router = express.Router();
 
@@ -52,14 +51,16 @@ router.post("/", async (req, res) => {
 })
 
 const sentMessage = async (data: Object) => {
-      return await fetch(WHATSAPP_URL, {
+      const result = await fetch(WHATSAPP_URL, {
         method: "POST",
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${WHATSAPP_TOKEN}`
+            Authorization: `Bearer ${WHATSAPP_TOKEN}` 
           },
         body: JSON.stringify(data)
       });
+      console.log(JSON.stringify(data));
+      return result;
 }
 
 export default router;
