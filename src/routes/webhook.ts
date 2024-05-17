@@ -1,12 +1,9 @@
 import express from "express";
-import morgan from "morgan";
 import { chatflow } from '../services/flowService';
 
 import { extractData } from "../util/extractors/receivedMessageExtractor";
 
 const router = express.Router();
-
-router.use(morgan("dev"));
 
 const TOKEN = process.env.TOKEN || "";
 const WHATSAPP_TOKEN = process.env.WHATSAPP_TOKEN || "";
